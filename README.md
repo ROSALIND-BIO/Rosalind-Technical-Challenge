@@ -1,6 +1,6 @@
 # Gym App
 
-You're starting your own gym business, and you decided to get rid of the pen and paper and move all your clients to your website. For this, you decided to build yourself the REST API to power your systems.
+You're starting your own gym business, and you decided to get rid of the pen and paper and move all your clients to your website. For this, you decided to build yourself a Django app to power your systems.
 
 Your gym opens for **8 hours a day (from 8a to 6p), 6 days (Monday to Saturday) a week**, and for organization purposes, **each student can schedule an hour per day to work out**.
 
