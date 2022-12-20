@@ -39,15 +39,15 @@ pip install -r requirements.txt
 ```
 
 ##### Using docker
-We have three Docker images available for use, all inside of the `images` folder.
+We have a Docker image available for use, inside the `images` folder.
 
 - `dev.dockerfile` for local development
 
-You can build and run these Docker images using the following commands:
+You can build and run this Docker image using the following commands:
 
 - `docker-compose -f images/dev.docker-compose.yaml up -t 1 --abort-on-container-exit`
 
-Please inspect the contents of these Dockerfiles so you're aware of what they're doing. You're free to make changes to them, create your own, or ignore Docker development entirely.
+Please inspect the contents of these Dockerfiles, so you're aware of what they're doing. You're free to make changes to these files, create your own, or ignore Docker development entirely.
 
 If you choose to ignore Docker development, please be prepared to provide information on your local development process.
 
@@ -69,7 +69,7 @@ Once running, your server should be available on [localhost:8000](http://localho
 2. All custom Django ORM models should live within the `rosalind` app.
 3. Modifications to Django ORM models should be properly addressed as migrations. 
 4. You are allowed to create as many files as you want, and modify any files as well. 
-5. You're allowed to add any libraries that you want, but they need to be properly added to the `requirements.txt` file.
+5. You are allowed to add any libraries that you want, but they need to be properly added to the `requirements.txt` file.
 
 #### Tasks
 
