@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+    dev-db:
+        image: postgres:13
+        environment:
+            - POSTGRES_DB=postgres
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+        ports:
+            - "5432:5432"
+        logging:
+            driver: none
+    dev-server:
+        image: dev-server
+        depends_on:
+            - dev-db
+        build:
+            context: ../.
+            dockerfile: "images/dev.dockerfile"
+        volumes:
+            - ..:/app
+        ports:
+            - "8000:8000"

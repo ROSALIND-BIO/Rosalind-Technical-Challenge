@@ -1,0 +1,32 @@
+{% extends 'base.html' %} 
+
+{% block title %}Register Schedule for Teacher{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated and request.user.is_superuser %}
+<h1>
+    Register Schedule for Teacher
+</h1>
+
+<body>
+    <center>
+        <form method="POST">
+            {% csrf_token %}
+        <table border="1">
+            <tr>
+                <td>Teacher Name</td>
+                <td><input type="text" placeholder="Enter Teacher's Name" name="teachers_name"></td>
+            </tr>
+            <tr>
+                <td>Teacher Schedule</td>
+                <td><input type="text" placeholder="Enter Teacher's Schedule" name="teachers_schedule"></td>
+            </tr>
+            <tr>
+                <td><button type="submit">Register</button></td>
+            </tr>
+        </table>
+        </form>
+    </center>
+</body>
+{% endif %}
+{% endblock %}

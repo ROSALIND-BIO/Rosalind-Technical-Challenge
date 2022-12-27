@@ -1,0 +1,34 @@
+{% extends 'base.html' %} 
+
+{% block title %}List of Registered Teachers{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated and request.user.is_superuser %}
+<h1>
+    List of Registered Teachers
+</h1>
+
+<body>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>TeacherName</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Birthday</th>
+        </tr>
+        {% for results in data %}
+        <tr>
+            <td>{{results.id}}</td>
+            <td>{{results.fullname}}</td>
+            <td>{{results.phone_number}}</td>
+            <td>{{results.email}}</td>
+            <td>{{results.birthday}}</td>
+            <td><a href='editTeacherRegister/{{results.id}}'>Edit</a></td>
+            <td><a href='deleteTeacherRegister/{{results.id}}' onclick="return confirmation('Are you sure you want to delete')">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+{% endif %}
+{% endblock %}

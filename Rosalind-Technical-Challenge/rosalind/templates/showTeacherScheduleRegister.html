@@ -1,0 +1,30 @@
+{% extends 'base.html' %} 
+
+{% block title %}Teacher Schedule Registration{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated and request.user.is_superuser %}
+<h1>
+    Teacher Schedule Registration
+</h1>
+
+<body>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Teachers</th>
+            <th>Schedule</th>
+        </tr>
+        {% for result in data_set_2 %}
+        <tr>
+            <td>{{result.id}}</td>
+            <td>{{result.teachers_name}}</td>
+            <td>{{result.teachers_schedule}}</td>
+            <td><a href='editTeacherScheduleRegister/{{result.id}}'>Edit</a></td>
+            <td><a href='deleteTeacherScheduleRegister/{{result.id}}' onclick="return confirmation('Are you sure you want to delete')">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+{% endif %}
+{% endblock %}

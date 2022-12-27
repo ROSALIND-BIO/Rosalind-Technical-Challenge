@@ -1,0 +1,42 @@
+{% extends 'base.html' %} 
+
+{% block title %}Edit List of Registered Teachers{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated and request.user.is_superuser %}
+<h1>
+    Edit List of Registered Teachers
+</h1>
+
+<body>
+    <form action="/updateTeacherRegister/{{Teacher.id}}" method="POST">
+    {% csrf_token %}
+    <table border="1">
+        <tr>
+            <td>Teacher ID</td>
+            <td><input type="text" name="id" value="{{Teacher.id}}" readonly></td>
+        </tr>
+        <tr>
+            <td>Teacher Name</td>
+            <td><input type="text" name="fullname" value="{{Teacher.fullname}}"></td>
+        </tr>
+        <tr>
+            <td>Teacher Phone Number</td>
+            <td><input type="text" name="phone_number" value="{{Teacher.phone_number}}"></td>
+        </tr>
+        <tr>
+            <td>Teacher Email</td>
+            <td><input type="text" name="email" value="{{Teacher.email}}"></td>
+        </tr>
+        <tr>
+            <td>Teacher Birthday</td>
+            <td><input type="text" name="birthday" value="{{Teacher.birthday}}"></td>
+        </tr>
+        <tr>
+            <td><button type="submit">Update</button></td>
+        </tr>
+    </table>
+    </form>
+</body>
+{% endif %}
+{% endblock %}

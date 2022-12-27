@@ -1,0 +1,40 @@
+{% extends 'base.html' %} 
+
+{% block title %}Register Teacher{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated and request.user.is_superuser %}
+<h1>
+    Register Teacher
+</h1>
+
+<body>
+    <center>
+        <form method="POST">
+            {% csrf_token %}
+        <table border="1">
+            <tr>
+                <td>Teacher Name</td>
+                <td><input type="text" placeholder="Enter Teacher's Name" name="fullname"></td>
+            </tr>
+            <tr>
+                <td>Teacher Phone Number</td>
+                <td><input type="text" placeholder="Enter Teacher's Phone Number" name="phone_number"></td>
+            </tr>
+            <tr>
+                <td>Teacher Email</td>
+                <td><input type="text" placeholder="Enter Teacher's Email" name="email"></td>
+            </tr>
+            <tr>
+                <td>Teacher Birthday</td>
+                <td><input type="date" name="birthday"></td>
+            </tr>
+            <tr>
+                <td><button type="submit">Register</button></td>
+            </tr>
+        </table>
+        </form>
+    </center>
+</body>
+{% endif %}
+{% endblock %}

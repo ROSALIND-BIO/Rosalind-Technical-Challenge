@@ -1,0 +1,24 @@
+{% extends 'base.html' %} 
+
+{% block title %}Gym App Homepage{% endblock %}
+
+{% block content %}
+<h1>
+    Gym App Homepage
+</h1>
+
+<body>
+    <table border="1">
+        <tr>
+            <th>Teachers</th>
+            <th>Schedule</th>
+        </tr>
+        {% for result in data_set %}
+        <tr>
+            <td>{{result.teachers_name}}</td>
+            <td>{{result.teachers_schedule}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+{% endblock %}

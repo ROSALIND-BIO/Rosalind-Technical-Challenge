@@ -1,0 +1,34 @@
+{% extends 'base.html' %} 
+
+{% block title %}Edit Schedule of Teachers{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated and request.user.is_superuser %}
+<h1>
+    Edit Schedule of Teachers
+</h1>
+
+<body>
+    <form action="/updateTeacherScheduleRegister/{{TeacherSchedule.id}}" method="POST">
+    {% csrf_token %}
+    <table border="1">
+        <tr>
+            <td>Teacher ID</td>
+            <td><input type="text" name="id" value="{{TeacherSchedule.id}}" readonly></td>
+        </tr>
+        <tr>
+            <td>Teacher Name</td>
+            <td><input type="text" name="teachers_name" value="{{TeacherSchedule.teachers_name}}"></td>
+        </tr>
+        <tr>
+            <td>Teacher Schedule</td>
+            <td><input type="text" name="teachers_schedule" value="{{TeacherSchedule.teachers_schedule}}"></td>
+        </tr>
+        <tr>
+            <td><button type="submit">Update</button></td>
+        </tr>
+    </table>
+    </form>
+</body>
+{% endif %}
+{% endblock %}
